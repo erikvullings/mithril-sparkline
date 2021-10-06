@@ -1,6 +1,6 @@
 {
   "name": "mithril-sparkline",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/sparkline.js",
   "module": "dist/sparkline.mjs",
   "esmodule": "dist/sparkline.modern.js",
