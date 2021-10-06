@@ -14,12 +14,12 @@ export type SparklineOptions<T = SparklineEntry> = {
    * This function will be called whenever the mouse moves over the SVG.
    * You can use it to render something like a tooltip.
    */
-  onmousemove: (event: MouseEvent, value: SparklineMouseMove<T>) => void;
+  onmousemove?: (event: MouseEvent, value: SparklineMouseMove<T>) => void;
   /**
    * This function will be called whenever the mouse leaves the SVG area.
    * You can use it to hide the tooltip.
    */
-  onmouseout: (event: MouseEvent) => void;
+  onmouseout?: (event: MouseEvent) => void;
   /**
    * Should we run in interactive mode?
    * If yes, this will handle the cursor and spot position when moving the mouse.
@@ -45,10 +45,10 @@ export type SparklineOptions<T = SparklineEntry> = {
 
 const Sparkline = <T = SparklineEntry>(): Component<{
   entries: T[];
-  width: number;
-  height: number;
-  strokeWidth: number;
-  options: SparklineOptions<T>;
+  width?: number;
+  height?: number;
+  strokeWidth?: number;
+  options?: SparklineOptions<T>;
 }> => {
   // Some arbitrary value to remove the cursor and spot out of the viewing canvas.
   const offscreen = -1000;
@@ -66,9 +66,9 @@ const Sparkline = <T = SparklineEntry>(): Component<{
     view: ({
       attrs: {
         entries,
-        width: svgWidth,
-        height: svgHeight,
-        strokeWidth,
+        width: svgWidth = 300,
+        height: svgHeight = 50,
+        strokeWidth = 3,
         options = {},
       },
     }) => {
