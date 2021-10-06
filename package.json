@@ -1,0 +1,44 @@
+{
+  "name": "mithril-sparkline",
+  "version": "0.0.0",
+  "main": "dist/sparkline.js",
+  "module": "dist/sparkline.mjs",
+  "esmodule": "dist/sparkline.modern.js",
+  "unpkg": "dist/sparkline.umd.js",
+  "typings": "dist/sparkline.d.ts",
+  "scripts": {
+    "clean": "rimraf .rpt2_cache dist lib",
+    "build": "microbundle src/sparkline.ts",
+    "start": "microbundle watch src/sparkline.ts",
+    "dry-run": "npm publish --dry-run",
+    "patch-release": "npm run clean && npm run build && npm version patch --force -m \"Patch release\" && npm publish && git push",
+    "minor-release": "npm run clean && npm run build && npm version minor --force -m \"Minor release\" && npm publish && git push",
+    "major-release": "npm run clean && npm run build && npm version major --force -m \"Major release\" && npm publish && git push"
+  },
+  "keywords": [
+    "mithril",
+    "sparkline",
+    "SVG",
+    "graph",
+    "typescript"
+  ],
+  "description": "Generate SVG sparklines with Mithril without any other dependency.",
+  "license": "MIT",
+  "author": "Erik Vullings <erik.vullings@gmail.com> (http://www.tno.nl)",
+  "repository": "https://github.com/erikvullings/mithril-sparkline",
+  "bugs": {
+    "url": "https://github.com/erikvullings/mithril-sparkline/issues"
+  },
+  "homepage": "https://github.com/erikvullings/mithril-sparkline#readme",
+  "private": false,
+  "devDependencies": {
+    "@types/mithril": "2.0.8",
+    "microbundle": "^0.13.3",
+    "rimraf": "^3.0.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "peerDependencies": {
+    "mithril": "^2.0.4"
+  }
+}
